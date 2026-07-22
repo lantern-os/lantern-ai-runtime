@@ -3,9 +3,9 @@
 **Phase:** 0 (Foundations) — design only.
 
 ## Done
-- Three-jobs model, agent capability model, and audit approach drafted ([ARCHITECTURE.md](./ARCHITECTURE.md)).
+- Three-jobs model, agent capability model, and audit approach drafted and reviewed ([ARCHITECTURE.md](./ARCHITECTURE.md)).
 - Prompt-injection-as-capability-containment argument documented.
-- Threat model drafted.
+- Threat model drafted and reviewed.
 
 ## Next
 - Define standard capability shapes for common agent powers.
