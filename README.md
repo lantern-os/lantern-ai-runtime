@@ -7,7 +7,7 @@ receives explicit capabilities, and everything it does is logged and attributabl
 - **Layer:** runtime (on top of [`lantern-runtime`](https://github.com/lantern-os/lantern-runtime); confined user space).
 - **System context:** [wiki/AI](https://github.com/lantern-os/lantern-docs/blob/main/wiki/AI.md).
 
-> ⚠️ **Phase 0.** Design only; no code. See [`STATUS.md`](./STATUS.md).
+> ⚠️ **Phase 3** (RFC-0017/ADR-0021) — still design only; blocked on the confined-execution port carried forward from Phase 2. See [`STATUS.md`](./STATUS.md).
 
 ## In this repo
 - [`ARCHITECTURE.md`](./ARCHITECTURE.md), [`THREAT_MODEL.md`](./THREAT_MODEL.md), [`STATUS.md`](./STATUS.md).
