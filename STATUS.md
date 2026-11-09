@@ -7,9 +7,14 @@
 - Prompt-injection-as-capability-containment argument documented.
 - Threat model drafted and reviewed.
 
+- **A first audit log exists (2026-11-05)**, in `lantern-shell/policy-store` for now:
+  [RFC-0024](https://github.com/lantern-os/lantern-rfcs/blob/main/rfcs/0024-audit-log.md)/[ADR-0029](https://github.com/lantern-os/lantern-rfcs/blob/main/adr/0029-audit-log.md). It's a hash-chained
+  record of the launch binder's grants, declines and revocations, with none of it in the TCB. It doesn't yet record what an agent
+  does with a grant.
+
 ## Next
 - Define standard capability shapes for common agent powers.
-- Design the tamper-evident audit log (and its TCB footprint).
+- Extend the audit log to what an agent does with a grant: service operations, with a batching design for hot paths.
 - Phase 3: local inference + a capability-scoped agent with a working audit log.
 
 ## Blocked on
