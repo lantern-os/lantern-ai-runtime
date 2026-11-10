@@ -11,10 +11,15 @@
   [RFC-0024](https://github.com/lantern-os/lantern-rfcs/blob/main/rfcs/0024-audit-log.md)/[ADR-0029](https://github.com/lantern-os/lantern-rfcs/blob/main/adr/0029-audit-log.md). It's a hash-chained
   record of the launch binder's grants, declines and revocations, with none of it in the TCB. It doesn't yet record what an agent
   does with a grant.
+- **It records what an agent does with a grant (2026-11-10)**: [RFC-0025](https://github.com/lantern-os/lantern-rfcs/blob/main/rfcs/0025-audit-log-service-operations.md)/[ADR-0030](https://github.com/lantern-os/lantern-rfcs/blob/main/adr/0030-audit-log-service-operations.md). The keystore and filesystem services record each
+  use before acting, under the grant's badge, so the log answers "under which grant, did what, to which object, in what order".
+  The runtime hosting the agent records nothing: it's the party being audited. The log retires its oldest history when full,
+  visibly, and a per-grant quota stops one agent pushing everyone else's out. "When" is still order only.
 
 ## Next
 - Define standard capability shapes for common agent powers.
-- Extend the audit log to what an agent does with a grant: service operations, with a batching design for hot paths.
+- Measure the cost per operation on real flash (Phase 4), and export retired history before it's erased.
+- A person-facing view of the log, with names rather than badges and hashes, as part of the consent surface.
 - Phase 3: local inference + a capability-scoped agent with a working audit log.
 
 ## Blocked on
