@@ -11,6 +11,11 @@
   [RFC-0024](https://github.com/lantern-os/lantern-rfcs/blob/main/rfcs/0024-audit-log.md)/[ADR-0029](https://github.com/lantern-os/lantern-rfcs/blob/main/adr/0029-audit-log.md). It's a hash-chained
   record of the launch binder's grants, declines and revocations, with none of it in the TCB. It doesn't yet record what an agent
   does with a grant.
+- **A person decides what an agent gets (2026-11-11)**: [RFC-0026](https://github.com/lantern-os/lantern-rfcs/blob/main/rfcs/0026-trusted-path-and-consent.md)/
+  [ADR-0032](https://github.com/lantern-os/lantern-rfcs/blob/main/adr/0032-trusted-path-and-consent.md). In `lantern-boot-system`, each grant within the system's
+  policy is asked at a console only the shell reaches; the person can list, revoke, and read a verified audit log there. With
+  the audit log, that is the exit criterion's "visible, revocable capability set and faithful audit log", for one app, with no
+  model yet: local inference is still to come.
 - **It records what an agent does with a grant (2026-11-10)**: [RFC-0025](https://github.com/lantern-os/lantern-rfcs/blob/main/rfcs/0025-audit-log-service-operations.md)/[ADR-0030](https://github.com/lantern-os/lantern-rfcs/blob/main/adr/0030-audit-log-service-operations.md). The keystore and filesystem services record each
   use before acting, under the grant's badge, so the log answers "under which grant, did what, to which object, in what order".
   The runtime hosting the agent records nothing: it's the party being audited. The log retires its oldest history when full,
