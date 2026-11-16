@@ -1,0 +1,31 @@
+[package]
+name = "lantern-ai-runtime"
+version = "0.0.0"
+edition = "2021"
+description = "LanternOS local inference engine (RFC-0034): a no_std Llama-family transformer over int8 weights, after llama2.c's runq.c"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[lib]
+name = "lantern_ai_runtime"
+path = "src/lib.rs"
+
+[features]
+default = []
+# The host-side converter (`convert`), for `lantern-boot`'s `lantern-mkmodel`, and the host tools below.
+std = []
+
+[dependencies]
+libm = "0.2"
+
+# `lantern-generate <model.lmodel> <max-tokens> <prompt>`: runs the engine on the host, greedily.
+[[bin]]
+name = "lantern-generate"
+path = "src/bin/generate.rs"
+required-features = ["std"]
+
+# `lantern-reference`: an independent f32 forward pass, to check the engine against (see its doc).
+[[bin]]
+name = "lantern-reference"
+path = "src/bin/reference.rs"
+required-features = ["std"]

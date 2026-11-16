@@ -7,9 +7,21 @@ receives explicit capabilities, and everything it does is logged and attributabl
 - **Layer:** runtime (on top of [`lantern-runtime`](https://github.com/lantern-os/lantern-runtime); confined user space).
 - **System context:** [wiki/AI](https://github.com/lantern-os/lantern-docs/blob/main/wiki/AI.md).
 
-> ⚠️ **Phase 3** (RFC-0017/ADR-0021) — still design only; blocked on the confined-execution port carried forward from Phase 2. See [`STATUS.md`](./STATUS.md).
+> **Phase 3.** The local inference engine is built
+> ([RFC-0034](https://github.com/lantern-os/lantern-rfcs/blob/main/rfcs/0034-local-inference-and-a-file-assistant.md)/[ADR-0039](https://github.com/lantern-os/lantern-rfcs/blob/main/adr/0039-local-inference-and-a-file-assistant.md)):
+> `lantern-boot`'s confined `inference-service` runs it behind a capability, and the file assistant, an ordinary app, uses
+> it. See [`STATUS.md`](./STATUS.md).
 
 ## In this repo
+- **`lantern-ai-runtime`**, a `no_std` Rust crate with no allocation: a Llama-family transformer over int8 weights, after
+  Andrej Karpathy's llama2.c `runq.c` (MIT).
+  - `model`: the `LMODEL01` model file, its weights viewed in place.
+  - `tokenizer`: llama2.c's byte-pair tokenizer.
+  - `engine`: the forward pass, sampling and generation.
+  - `convert` (feature `std`): a llama2.c f32 checkpoint to an `LMODEL01` file, for `lantern-boot`'s `lantern-mkmodel`.
+- Host tools, with `--features std`: `lantern-generate <model> <tokens> <prompt>` runs the engine; `lantern-reference
+  <checkpoint> <model> <tokens> <prompt>` compares it with an independent f32 forward pass on the original checkpoint.
+- `cargo test` runs the host tests, on small synthetic models.
 - [`ARCHITECTURE.md`](./ARCHITECTURE.md), [`THREAT_MODEL.md`](./THREAT_MODEL.md), [`STATUS.md`](./STATUS.md).
 
 ## The non-negotiable rule
