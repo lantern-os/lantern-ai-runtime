@@ -2,6 +2,8 @@
 
 **Phase:** 3 (Privacy, identity, networking, and AI) — opened per [RFC-0017](https://github.com/lantern-os/lantern-rfcs/blob/main/rfcs/0017-phase-2-to-phase-3-transition.md)/[ADR-0021](https://github.com/lantern-os/lantern-rfcs/blob/main/adr/0021-phase-2-complete-phase-3-opened.md). The inference engine is built, and runs confined (RFC-0034).
 
+**Roadmap:** Phase 3 closed and Phase 4 (hardware and assurance) opened, 2026-11-16, per [RFC-0036](https://github.com/lantern-os/lantern-rfcs/blob/main/rfcs/0036-phase-3-to-phase-4-transition.md)/[ADR-0041](https://github.com/lantern-os/lantern-rfcs/blob/main/adr/0041-phase-3-complete-phase-4-opened.md).
+
 ## Done
 - Three-jobs model, agent capability model, and audit approach drafted and reviewed ([ARCHITECTURE.md](./ARCHITECTURE.md)).
 - Prompt-injection-as-capability-containment argument documented.
