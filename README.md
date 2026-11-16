@@ -7,10 +7,9 @@ receives explicit capabilities, and everything it does is logged and attributabl
 - **Layer:** runtime (on top of [`lantern-runtime`](https://github.com/lantern-os/lantern-runtime); confined user space).
 - **System context:** [wiki/AI](https://github.com/lantern-os/lantern-docs/blob/main/wiki/AI.md).
 
-> **Phase 3.** The local inference engine is built
-> ([RFC-0034](https://github.com/lantern-os/lantern-rfcs/blob/main/rfcs/0034-local-inference-and-a-file-assistant.md)/[ADR-0039](https://github.com/lantern-os/lantern-rfcs/blob/main/adr/0039-local-inference-and-a-file-assistant.md)):
-> `lantern-boot`'s confined `inference-service` runs it behind a capability, and the file assistant, an ordinary app, uses
-> it. See [`STATUS.md`](./STATUS.md).
+> **Phase 4** ([RFC-0036](../lantern-rfcs/rfcs/0036-phase-3-to-phase-4-transition.md)): hardware and assurance. The local inference engine is built
+> ([RFC-0034](../lantern-rfcs/rfcs/0034-local-inference-and-a-file-assistant.md)): `lantern-boot`'s confined
+> `inference-service` runs it behind a capability. Larger models and accelerators wait for real hardware. See [`STATUS.md`](./STATUS.md).
 
 ## In this repo
 - **`lantern-ai-runtime`**, a `no_std` Rust crate with no allocation: a Llama-family transformer over int8 weights, after
